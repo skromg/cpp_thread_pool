@@ -1,2 +1,2 @@
 # cpp_thread_pool
-cpp thread-pool practise
+modern c++ 线程池

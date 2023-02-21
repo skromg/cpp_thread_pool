@@ -25,5 +25,10 @@ void TestWidget::InitUI()
 
 void TestWidget::OnBtnClicked()
 {
-    //    thread_pool_.EnqueueTask();
+    std::future<int> task_future = thread_pool_.EnqueueTask([]() {
+        qDebug() << "task start ... ";
+        std::this_thread::sleep_for(std::chrono::seconds(5));
+        qDebug() << "task end ... ";
+        return 9;
+    });
 }
