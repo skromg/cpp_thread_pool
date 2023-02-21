@@ -7,10 +7,7 @@ find_package(Qt5 COMPONENTS Widgets REQUIRED)
 
 set(SRC_LIST
         main.cpp
-        threadpool.h
-        threadpool.cpp
-        testwidget.h
-        testwidget.cpp)
+        threadpool.h)
 
 add_executable(thread_pool ${SRC_LIST})
 target_link_libraries(thread_pool -lpthread Qt5::Widgets)

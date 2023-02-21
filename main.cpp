@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
     for (int i = 0; i < num; ++i) {
         results.emplace_back(thread_pool.EnqueueTask([i]() {
             cout << "task " << i << " start ... " << endl;
-            std::this_thread::sleep_for(std::chrono::seconds(5));
+            std::this_thread::sleep_for(std::chrono::seconds(10));
             cout << "task " << i<< " end ... " << endl;
             FLUSH;
             return std::make_tuple(i, i*i);
@@ -39,6 +39,7 @@ int main(int argc, char *argv[])
 
     for(auto &item : results)
     {
+        cout << "wait result ..." << endl;
         auto [index, result] = item.get();
         cout << "task " << index << ", result is " << result << endl;
     }
