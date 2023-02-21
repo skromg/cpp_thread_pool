@@ -34,14 +34,13 @@ int main(int argc, char *argv[])
             FLUSH;
             return std::make_tuple(i, i*i);
         }));
-        std::this_thread::sleep_for(std::chrono::seconds(3));
     }
 
     for(auto &item : results)
     {
-        cout << "wait result ..." << endl;
         auto [index, result] = item.get();
         cout << "task " << index << ", result is " << result << endl;
+        FLUSH;
     }
 
     return 0;
